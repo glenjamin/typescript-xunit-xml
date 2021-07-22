@@ -1,0 +1,24 @@
+{
+  "name": "typescript-xunit-xml",
+  "version": "1.0.0",
+  "description": "Produce xUnit-style XML output from typescript compiler messages",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glenjamin/typescript-xunit-xml.git"
+  },
+  "keywords": [
+    "typescript",
+    "xunit",
+    "junit",
+    "xml"
+  ],
+  "author": "Glen Mailer <glen@stainlessed.co.uk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glenjamin/typescript-xunit-xml/issues"
+  },
+  "homepage": "https://github.com/glenjamin/typescript-xunit-xml#readme",
+  "dependencies": {
+    "xmlbuilder": "^15.1.1"
+  }
+}
