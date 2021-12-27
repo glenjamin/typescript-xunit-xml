@@ -28,9 +28,9 @@ async function main(input, output) {
       parser.parse(line);
     }
 
-    const [errors, xml] = toJunit(parser.errors);
+    const xml = toJunit(parser.errors);
     output.write(xml);
-    if (errors && errors.length) {
+    if (parser.errors && parser.errors.length) {
       process.exit(1);
     }
 }
@@ -93,7 +93,7 @@ function toJunit(errors) {
       }))
     }
   };
-  return [errors, xmlbuilder.create(obj).end({ pretty: true})];
+  return xmlbuilder.create(obj).end({ pretty: true});
 }
 
 if (require.main) {
