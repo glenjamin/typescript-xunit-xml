@@ -29,7 +29,9 @@ async function main(input, output) {
     }
 
     const xml = toJunit(parser.errors);
-    output.write(xml);
+    output.write(xml + "\n");
+
+    return parser.errors.length ? 1 : 0
 }
 
 /**
@@ -90,13 +92,16 @@ function toJunit(errors) {
       }))
     }
   };
-  return xmlbuilder.create(obj).end({ pretty: true});;
+  return xmlbuilder.create(obj).end({ pretty: true});
 }
 
 if (require.main) {
   main(process.stdin, process.stdout)
     .catch(err => {
       console.error("ERROR: " + err.message);
-      process.exit(1);
+      return 1;
+    })
+    .then(code => {
+      process.exit(code);
     });
 }
