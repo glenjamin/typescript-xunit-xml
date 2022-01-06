@@ -7,6 +7,9 @@
     "url": "git+https://github.com/glenjamin/typescript-xunit-xml.git"
   },
   "bin": "./main.js",
+  "scripts": {
+    "test": "./test.sh"
+  },
   "keywords": [
     "typescript",
     "xunit",

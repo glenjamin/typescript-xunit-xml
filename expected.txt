@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<testsuite name="Typescript type errors" tests="2" failures="2">
+  <testcase name="TS2551" classname="index.js:34:30">
+    <failure type="TS2551" message="Property 'TracingDataset' does not exist on type 'Options'. Did you mean 'TracingDatase'?"/>
+  </testcase>
+  <testcase name="TS2345" classname="index.test.js:52:5">
+    <failure type="TS2345" message="Argument of type '{ APIHost: string; APIKey: string; GlobalMetadata: { global: string; }; DesiredSampleRate: number; TracingDataset: string; }' is not assignable to parameter of type 'Options | &quot;mock&quot;'."/>
+  </testcase>
+</testsuite>
