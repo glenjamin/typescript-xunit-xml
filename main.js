@@ -50,6 +50,7 @@ async function main(input, output) {
 
 // We only handle the format without --pretty right now
 const UGLY_REGEX = /^(?<file>.+?)\((?<line>\d+),(?<col>\d+)\): error (?<code>\S+?): (?<message>.+)$/;
+const ERROR_WITHOUT_FILE_REGEX = /error (?<code>\S+?): (?<message>.+)$/;
 
 /**
  * @returns {Parser}
@@ -58,15 +59,24 @@ function newParser() {
   const errors = [];
   function parse(line) {
     const match = UGLY_REGEX.exec(line);
+    const errorWithoutFileMatch = ERROR_WITHOUT_FILE_REGEX.exec(line);
+
     if (match) {
       errors.push({
         filename: match.groups.file,
         line: Number(match.groups.line),
         col: Number(match.groups.col),
         code: match.groups.code,
-        message: match.groups.message
-      })
-      return;
+        message: match.groups.message,
+      });
+    } else if (errorWithoutFileMatch) {
+      errors.push({
+        code: errorWithoutFileMatch.groups.code,
+        col: 'N/A',
+        filename: 'N/A',
+        line: 'N/A',
+        message: errorWithoutFileMatch.groups.message,
+      });
     }
   }
   return {errors, parse};
