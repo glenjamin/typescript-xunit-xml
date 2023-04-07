@@ -72,10 +72,10 @@ function newParser() {
     } else if (errorWithoutFileMatch) {
       errors.push({
         code: errorWithoutFileMatch.groups.code,
-        col: 'N/A',
-        filename: 'N/A',
-        line: 'N/A',
         message: errorWithoutFileMatch.groups.message,
+        filename: 'unknown',
+        col: 0,
+        line: 0,
       });
     }
   }

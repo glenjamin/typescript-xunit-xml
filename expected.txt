@@ -6,7 +6,7 @@
   <testcase name="TS2345" classname="index.test.js:52:5">
     <failure type="TS2345" message="Argument of type '{ APIHost: string; APIKey: string; GlobalMetadata: { global: string; }; DesiredSampleRate: number; TracingDataset: string; }' is not assignable to parameter of type 'Options | &quot;mock&quot;'."/>
   </testcase>
-  <testcase name="TS2688" classname="N/A:N/A:N/A">
+  <testcase name="TS2688" classname="unknown:0:0">
     <failure type="TS2688" message="Cannot find type definition file for 'ember__test-helpers'."/>
   </testcase>
 </testsuite>
